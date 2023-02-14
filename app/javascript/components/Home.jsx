@@ -1,13 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar'
+// import image from '../../assets/images/nusa-penida.png'
 
 const Home = () => {
   return (
     <div>
-      <h1>travel reccies</h1>
-      <h2>top destinations</h2>
+      <Navbar/>
+      <Link
+          to="/destinations"
+          role="button"
+        >
+          View Destinations
+        </Link>
+
       <footer>
-        <p>app created by shelley timmins</p>
+        <p className="text-rose-700">app created by shelley timmins</p>
       </footer>
       </div>
   )
