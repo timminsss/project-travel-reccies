@@ -82,3 +82,7 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "react-rails"
 
 gem "simple_form", "~> 5.2"
+
+gem "dotenv-rails", groups: [:development, :test]
+
+gem "cloudinary"
