@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from './Navbar'
 
 const Destinations = (props) => {
   const navigate = useNavigate();
@@ -19,10 +20,11 @@ const Destinations = (props) => {
   }, []);
 
   const allDestinations = destinations.map((destination, index) => (
-    <div key={index}>
-          <h5>{destination.name}</h5>
-          <Link to={`/destination/${destination.id}`}>
-            View Destination hereeeee
+    <div key={index} className="my-5">
+          <h5 className="my-4">{destination.name}</h5>
+          <img src={destination.image_url} alt="" width="250px" />
+          <Link to={`/destination/${destination.id}`} className="btn-primary">
+            View Destination
           </Link>
     </div>
   ));
@@ -37,17 +39,21 @@ const Destinations = (props) => {
 
   return (
     <>
-      <div className="text-right">
-        <main className="">
-            <Link to="/destination">
-              Create New Destination
-            </Link>
-          <div>
-            {destinations.length > 0 ? allDestinations : noDestination}
-          </div>
-          <Link to="/">
+    <Navbar/>
+      <div className="text-center">
+        <main className="mt-5">
+          <div className="flex gap-4 justify-center">
+          <Link to="/" className="btn-secondary">
             Home
           </Link>
+            <Link to="/destination/create" className="btn-secondary">
+              Create New Destination
+            </Link>
+
+          </div>
+          <div className="flex gap-4 justify-center my-4">
+            {destinations.length > 0 ? allDestinations : noDestination}
+          </div>
         </main>
       </div>
     </>

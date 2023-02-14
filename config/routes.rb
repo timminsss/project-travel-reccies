@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'destinations/index'
-      # post 'destinations/create'
-      # get '/show/:id', to: 'destinations#show'
+      post 'destination/create'
+      get '/destination/:id', to: 'destinations#show'
       # delete '/destroy/:id', to: 'destinations#destroy'
     end
   end

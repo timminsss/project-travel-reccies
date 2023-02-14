@@ -80,3 +80,5 @@ gem "redis-rails", "~> 5.0"
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "react-rails"
+
+gem "simple_form", "~> 5.2"
