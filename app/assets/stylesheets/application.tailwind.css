@@ -10,4 +10,6 @@
   .btn-secondary {
     @apply rounded-full bg-white border p-3;
   }
+
+
 }

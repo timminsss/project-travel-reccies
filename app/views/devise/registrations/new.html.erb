@@ -7,6 +7,20 @@
       <div class="mt-8 space-y-6">
         <div class="rounded-md shadow-sm -space-y-px">
             <div class="field">
+              <%= f.label :first_name %><br />
+              <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",
+                  placeholder: "First Name", class: "appearance-none relative block w-full px-3 py-2 border border-gray-300
+                  placeholder-gray-500 text-gray-900 rounded-md focus:outline-none
+                  focus:ring-rose-300 focus:border-rose-300 focus:z-10 sm:text-sm" %>
+            </div>
+            <div class="field">
+              <%= f.label :last_name %><br />
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",
+                  placeholder: "Last Name", class: "appearance-none relative block w-full px-3 py-2 border border-gray-300
+                  placeholder-gray-500 text-gray-900 rounded-md focus:outline-none
+                  focus:ring-rose-300 focus:border-rose-300 focus:z-10 sm:text-sm" %>
+            </div>
+            <div class="field">
               <%= f.label :email %><br />
               <%= f.email_field :email, autofocus: true, autocomplete: "email",
                   placeholder: "Email", class: "appearance-none relative block w-full px-3 py-2 border border-gray-300

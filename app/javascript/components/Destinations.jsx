@@ -22,7 +22,7 @@ const Destinations = (props) => {
   const allDestinations = destinations.map((destination, index) => (
     <div key={index} className="my-5">
           <h5 className="my-4">{destination.name}</h5>
-          <img src={destination.image_url} alt="" width="250px" />
+          <img src={destination.image_url} alt=""className="rounded-md w-64 h-48 bg-contain" />
           <Link to={`/destination/${destination.id}`} className="btn-primary">
             View Destination
           </Link>

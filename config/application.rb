@@ -11,6 +11,14 @@ module ProjectTravelReccies
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    config.action_controller.forgery_protection_origin_check = false
+
+    # config.middleware.use ActionDispatch::Flash
+    # config.api_only = true
+
+    # config.middleware.use ActionDispatch::Cookies
+    # config.middleware.use config.session_store, config.session_options
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

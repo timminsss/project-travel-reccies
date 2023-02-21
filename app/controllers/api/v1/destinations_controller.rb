@@ -12,7 +12,8 @@ class Api::V1::DestinationsController < ApplicationController
   end
 
   def create
-    @destination = Destination.create!(destination_params)
+    @destination = Destination.new(destination_params)
+    @destination.user = current_user
     if @destination
       render json: @destination
     else

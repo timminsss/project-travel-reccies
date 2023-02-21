@@ -1,4 +1,10 @@
-<%= link_to "Log in", new_user_session_path %>
-<%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete } %>
+<% if current_user %>
+  <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete } %>
+<% else %>
+  <%= link_to "Log in", new_user_session_path %>
+<% end %>
+
+<%= current_user ? "you are logged in as #{current_user.email}" : "you are not logged in" %>
 
 <%= react_component("LogoutLink", path: destroy_user_session_path) %>
+<%= react_component("Navbar", path: destroy_user_session_path, data: { "turbo-method": :delete }) %>
