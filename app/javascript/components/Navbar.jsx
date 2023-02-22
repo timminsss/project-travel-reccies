@@ -39,7 +39,7 @@ const Navbar = ({ path }) => {
     fetch(url)
       .then((res) => {
         if (res.ok) {
-          console.log(res)
+          // console.log(res)
           return res.json();
         }
         throw new Error("Network response was not ok.");

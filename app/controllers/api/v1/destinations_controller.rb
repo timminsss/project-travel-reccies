@@ -1,15 +1,17 @@
 class Api::V1::DestinationsController < ApplicationController
   before_action :set_destination, only: %i[show destroy]
+  # skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @destinations = Destination.all.order(name: :asc)
     render json: @destinations
   end
 
-  def user_index
-    @user_destinations = Destination.where(user_id: current_user)
-    render json: @user_destinations
-  end
+  # to be done
+  # def user_index
+  #   @user_destinations = Destination.where(user_id: current_user)
+  #   render json: @user_destinations
+  # end
 
   def create
     @destination = Destination.new(destination_params)
