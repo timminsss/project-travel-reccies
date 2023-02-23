@@ -8,10 +8,10 @@ class Api::V1::DestinationsController < ApplicationController
   end
 
   # to be done
-  # def user_index
-  #   @user_destinations = Destination.where(user_id: current_user)
-  #   render json: @user_destinations
-  # end
+  def user_index
+    @user_destinations = Destination.where(user_id: current_user)
+    render json: @user_destinations
+  end
 
   def create
     @destination = Destination.new(destination_params)

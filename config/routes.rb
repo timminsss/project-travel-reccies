@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # get 'session/index'
   # get 'session/current_user'
-  # devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
   # # # get '/users/current_user', to: 'users#current_user'
   # namespace :api do
   #   namespace :v1 do
@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   #     # # delete '/destroy/:id', to: 'destinations#destroy'
   #   end
 
-  # resources :session, only: [:index, :current_user]
-  # resources :photos, only: [:create]
+  resources :session, only: [:index, :current_user]
+  resources :photos, only: [:create]
 
   # end
   # root 'home#index'
@@ -23,10 +23,11 @@ Rails.application.routes.draw do
 
 
 
-  devise_for :users
+  # devise_for :users
   namespace :api do
     namespace :v1 do
       get 'destinations/index'
+      get 'destinations/my_destinations', to: 'destinations#user_index'
       post 'destination/create'
       get '/destination/:id', to: 'destinations#show'
       # delete '/destroy/:id', to: 'destinations#destroy'

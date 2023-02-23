@@ -34,19 +34,19 @@ const Navbar = ({ path }) => {
     const navigate = useNavigate();
     const [user, setUser] = useState({});
 
-  useEffect(() => {
-    const url = "/sessions/current_user";
-    fetch(url)
-      .then((res) => {
-        if (res.ok) {
-          // console.log(res)
-          return res.json();
-        }
-        throw new Error("Network response was not ok.");
-      })
-      .then((res) => setUser(res))
-      .catch(() => navigate("/"));
-  }, []);
+  // useEffect(() => {
+  //   const url = "/sessions/current_user";
+  //   fetch(url)
+  //     .then((res) => {
+  //       if (res.ok) {
+  //         // console.log(res)
+  //         return res.json();
+  //       }
+  //       throw new Error("Network response was not ok.");
+  //     })
+  //     .then((res) => setUser(res))
+  //     .catch(() => navigate("/"));
+  // }, []);
 
 
 

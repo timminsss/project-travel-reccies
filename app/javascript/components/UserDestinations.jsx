@@ -16,7 +16,7 @@ const Destinations = (props) => {
         throw new Error("Network response was not ok.");
       })
       .then((res) => setDestinations(res))
-      .catch(() => navigate("/"));
+      .catch(() => navigate("/my_destinations"));
   }, []);
 
   const allDestinations = destinations.map((destination, index) => (
@@ -39,7 +39,7 @@ const Destinations = (props) => {
 
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
       <div className="text-center">
         <main className="mt-5">
           <div className="flex gap-4 justify-center">
