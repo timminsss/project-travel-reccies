@@ -22,10 +22,13 @@ class Api::V1::DestinationsController < ApplicationController
   def create
     @destination = Destination.new(destination_params)
     @destination.user = current_user
-    if @destination
-      render json: @destination
+    unless @destination.image_url
+      @destination.image_url = 'https://res.cloudinary.com/dvo81bzx4/image/upload/v1677645337/Reccie_jjubak.png'
+    end
+    if @destination.save
+      render json: @destination, status: :created
     else
-      render json: @destination.errors
+      render json: @destination.errors, status: :unprocessable_entity
     end
   end
 
@@ -41,7 +44,7 @@ class Api::V1::DestinationsController < ApplicationController
   private
 
   def destination_params
-    params.permit(:name, :city, :country, :image_url)
+    params.require(:destination).permit(:user, :name, :city, :country, :image_url)
   end
 
   def set_destination

@@ -1,30 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from './Navbar'
 
 const CreateDestinationForm = () => {
   const navigate = useNavigate();
-  const [name, setName] = useState({});
-  const [city, setCity] = useState({});
-  const [country, setCountry] = useState({});
+  const [name, setName] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
   const [image, setImage] = useState({});
 
 
   const onChange = (event, setFunction) => {
     setFunction(event.target.value);
+
   };
 
   const handleChangeImage = e => {
     e.persist();
     setImage(e.target.files[0]);
+    console.log(image)
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
     const url = "/api/v1/destinations/create";
 
-
-    if (name.length === 0 || city.length === 0 || country.length === 0 || image.length === 0)
+    // if (name.length === 0 || city.length === 0 || country.length === 0 || image.length === 0)
+    if (name.length === 0 || city.length === 0 || country.length === 0 )
       return;
 
       const body = {
@@ -33,6 +35,7 @@ const CreateDestinationForm = () => {
         country,
         image
       };
+      console.log(body)
 
       const token = document.querySelector('meta[name="csrf-token"]').content;
       console.log(token)
@@ -56,41 +59,28 @@ const CreateDestinationForm = () => {
   };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   // console.log(image)
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const data = new FormData();
-    data.append('name', e.target.elements.name.value);
-    data.append('city', e.target.elements.city.value);
-    data.append('country', e.target.elements.country.value);
-    data.append('image', image);
-    console.log(data)
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   const data = new FormData();
+  //   data.append('name', e.target.elements.name.value);
+  //   data.append('city', e.target.elements.city.value);
+  //   data.append('country', e.target.elements.country.value);
+  //   data.append('image', image);
+  //   console.log(data)
 
-    fetch('http://localhost:3000/photos', {
-      method: 'POST',
-      body: data,
-    })
-    .then(response => {
-      console.log(response)
-    })
-    .catch(error => {
-      console.log(error)
-    });
-  };
+  //   fetch('http://localhost:3000/photos', {
+  //     method: 'POST',
+  //     body: data,
+  //   })
+  //   .then(response => {
+  //     console.log(response)
+  //   })
+  //   .catch(error => {
+  //     console.log(error)
+  //   });
+  // };
 
   return (
     <>
@@ -129,10 +119,9 @@ const CreateDestinationForm = () => {
         <label>Upload an image</label>
           <input type="file"
                   name="image"
-                  onChange={handleChangeImage} />
-        <button type="submit" className="btn-primary mt-3">
-              Submit
-            </button>
+                  onChange={handleChangeImage}
+                  className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" />
+        <button type="submit" className="btn-primary mt-3">Submit</button>
       </form>
     </>
   )
