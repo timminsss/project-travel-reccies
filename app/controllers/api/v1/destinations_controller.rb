@@ -4,6 +4,12 @@ class Api::V1::DestinationsController < ApplicationController
 
   def index
     @destinations = Destination.all.order(name: :asc)
+    @markers = @destinations.geocoded.map do |destination|
+      {
+        lat: destination.latitude,
+        lng: destination.longitude
+      }
+    end
     render json: @destinations
   end
 

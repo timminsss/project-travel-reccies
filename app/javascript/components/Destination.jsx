@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Navbar from './Navbar'
+import Map from './Map'
 
 const Destination = (props) => {
   const params = useParams();
@@ -33,6 +34,7 @@ const Destination = (props) => {
       <Link to="/destinations" className="btn-secondary mt-6">
             Back
           </Link>
+      <Map/>
     </>
   )
 }
